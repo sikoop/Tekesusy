@@ -1,0 +1,469 @@
+/*======================================================================
+  ESTILOS GENERALES
+======================================================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0ebe5 0%, #e8ddd2 100%);
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+/*======================================================================
+  HEADER - SECCIÓN HERO (Encabezado Impactante)
+======================================================================*/
+.hero {
+    background: linear-gradient(135deg, rgba(97, 50, 50, 0.75), rgba(160, 140, 110, 0.75)), 
+                url('Palitos de queso venezolano tradicional _ Foto gratuita.jfif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    z-index: 10;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hero h1 {
+    font-size: 4.5em;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+    letter-spacing: 2px;
+    animation: slideInDown 0.8s ease-out;
+}
+
+.slogan {
+    font-size: 1.3em;
+    max-width: 600px;
+    margin: 15px auto 0;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+/*======================================================================
+  ANIMACIONES PERSONALIZADAS
+======================================================================*/
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/*======================================================================
+  CONTENIDO PRINCIPAL Y SECCIONES
+======================================================================*/
+.menu-list {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    color: #6b4423;
+    font-size: 3em;
+    margin-bottom: 50px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #a08c6e;
+    border-radius: 2px;
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 2em;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 15px;
+    margin-top: 0;
+    font-weight: 700;
+    position: relative;
+}
+
+h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #1a1a1a, #333333);
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+/* Contenedor de las secciones de Tequeños, Empanadas, etc. */
+.product-section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid #e65100;
+    animation: scaleIn 0.6s ease-out;
+}
+
+/* Contenedor Flex para las tarjetas */
+.menu-container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*======================================================================
+  TARJETAS DE PRODUCTO (LA CLAVE DEL DISEÑO)
+======================================================================*/
+.tarjeta {
+    flex: 1 1 250px;
+    padding: 0;
+    background: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    color: #4a4a4a;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.tarjeta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: height 0.4s ease;
+    z-index: 5;
+}
+
+/* EFECTO HOVER: Interactivo y Dinámico */
+.tarjeta:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta:hover .producto-img {
+    transform: scale(1.08) rotate(1deg);
+    filter: brightness(1.08);
+}
+
+.tarjeta:hover h4 {
+    color: #ff6f00;
+    animation: pulse 0.6s ease;
+}
+
+/* Estilo de la Imagen */
+.producto-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: brightness(1);
+}
+
+/* Colores de las tarjetas: Borde superior dinámico */
+.tequenos-color {
+    border-top: 5px solid #ff9800;
+}
+
+.tequenos-color:hover {
+    border-top-color: #000000;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.empanadas-color {
+    border-top: 5px solid #ffc107;
+}
+
+.empanadas-color:hover {
+    border-top-color: #000000;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.other-color {
+    border-top: 5px solid #ff5722;
+}
+
+.other-color:hover {
+    border-top-color: #000000;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.tarjeta h4 {
+    margin: 20px 0 8px 0;
+    color: #6b5d4f;
+    font-size: 1.4em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+/* Estilo para los precios */
+.tarjeta p {
+    font-weight: 600;
+    font-size: 0.95em;
+    padding: 0 15px 20px;
+    color: #7a7a7a;
+    transition: color 0.3s ease;
+}
+
+.tarjeta:hover p {
+    color: #4a4a4a;
+}
+
+/*======================================================================
+  FOOTER Y CONTACTO
+======================================================================*/
+.contact-footer {
+    background: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+    color: #e8e8e8;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: shimmer 3s infinite;
+    z-index: 1;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.contacto {
+    position: relative;
+    z-index: 2;
+}
+
+.contacto h2 {
+    color: #f5f5f5;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 15px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.social-links p {
+    margin: 0;
+    transition: all 0.3s ease;
+    color: #d0d0d0;
+}
+
+.social-links a {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffc107;
+    transition: width 0.3s ease;
+}
+
+.social-links a:hover::after {
+    width: 100%;
+}
+
+.social-links a:hover {
+    color: #ffb74d;
+    text-shadow: 0 0 8px rgba(255, 152, 0, 0.6);
+}
+
+/*======================================================================
+  RESPONSIVO (Tablets y Móviles)
+======================================================================*/
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 3.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 280px;
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+        letter-spacing: 1.5px;
+    }
+
+    .slogan {
+        font-size: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .tarjeta {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .menu-container {
+        gap: 15px;
+    }
+
+    .contacto h2 {
+        font-size: 1.8em;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 220px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .slogan {
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    .product-section {
+        padding: 20px;
+    }
+
+    .tarjeta p {
+        font-size: 0.85em;
+    }
+}

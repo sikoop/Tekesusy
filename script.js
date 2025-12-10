@@ -1,0 +1,1 @@
+// Este archivo está listo para cuando necesitemos añadir interactividad con JavaScript.
